@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm -v)",
+      "Bash(pnpm dlx *)",
+      "Bash(pnpm exec *)"
+    ]
+  }
+}

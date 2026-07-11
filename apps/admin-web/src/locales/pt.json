@@ -1,0 +1,71 @@
+{
+  "common": {
+    "add": "Adicionar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "refresh": "Atualizar",
+    "save": "Guardar"
+  },
+  "admin": {
+    "apiBase": "API: {{url}}",
+    "eyebrow": "Admin Apex Card",
+    "setupTitle": "Dados iniciais do MVP"
+  },
+  "auth": {
+    "configMissing": "A autenticação Supabase não está configurada. Adicione VITE_SUPABASE_URL e VITE_SUPABASE_PUBLISHABLE_KEY a apps/admin-web/.env.",
+    "email": "Email",
+    "login": "Entrar",
+    "loginFailed": "Não foi possível iniciar sessão. Verifique o email e a palavra-passe e tente novamente.",
+    "loginFailedWithDetails": "Não foi possível iniciar sessão. Estado: {{status}}. Código: {{code}}. Mensagem: {{message}}",
+    "loginIntro": "Entre com a sua conta de administração Supabase para continuar.",
+    "loginTitle": "Login de administração",
+    "logout": "Sair",
+    "password": "Palavra-passe",
+    "restoringSession": "A restaurar sessão...",
+    "signedInAs": "Sessão iniciada como {{email}}",
+    "signingIn": "A entrar..."
+  },
+  "benefits": {
+    "title": "Benefícios"
+  },
+  "categories": {
+    "iconPlaceholder": "Ícone",
+    "namePlaceholder": "Nome da categoria",
+    "slugPlaceholder": "Slug",
+    "title": "Categorias"
+  },
+  "cities": {
+    "countryPlaceholder": "País",
+    "namePlaceholder": "Nome da cidade",
+    "title": "Cidades"
+  },
+  "countries": {
+    "codePlaceholder": "Código",
+    "namePlaceholder": "Nome do país",
+    "title": "Países"
+  },
+  "dashboard": {
+    "title": "Painel"
+  },
+  "errors": {
+    "apiUnavailable": "Não foi possível contactar a API em {{url}}. Confirme que pnpm api:dev está em execução e que VITE_API_BASE_URL está definido como http://127.0.0.1:4000.",
+    "loadAdminData": "Não foi possível carregar os dados de administração.",
+    "requestFailed": "O pedido falhou.",
+    "requestFailedAt": "O pedido falhou em {{url}}."
+  },
+  "partners": {
+    "title": "Parceiros"
+  },
+  "records": {
+    "empty": "Ainda não há registos.",
+    "loading": "A carregar dados iniciais...",
+    "noCountry": "Sem país"
+  },
+  "settings": {
+    "language": "Idioma"
+  },
+  "subscription": {
+    "title": "Subscrição"
+  }
+}

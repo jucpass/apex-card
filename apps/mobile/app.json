@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "Apex Card Mobile",
+    "slug": "apex-card-mobile",
+    "version": "0.0.1",
+    "sdkVersion": "52.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "plugins": [
+      "expo-localization"
+    ]
+  }
+}

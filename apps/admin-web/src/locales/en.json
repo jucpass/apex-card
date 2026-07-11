@@ -1,0 +1,71 @@
+{
+  "common": {
+    "add": "Add",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "refresh": "Refresh",
+    "save": "Save"
+  },
+  "admin": {
+    "apiBase": "API: {{url}}",
+    "eyebrow": "Apex Card Admin",
+    "setupTitle": "MVP setup data"
+  },
+  "auth": {
+    "configMissing": "Supabase Auth is not configured. Add VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY to apps/admin-web/.env.",
+    "email": "Email",
+    "login": "Log in",
+    "loginFailed": "Sign in failed. Check the email and password, then try again.",
+    "loginFailedWithDetails": "Sign in failed. Status: {{status}}. Code: {{code}}. Message: {{message}}",
+    "loginIntro": "Sign in with your Supabase admin account to continue.",
+    "loginTitle": "Admin login",
+    "logout": "Log out",
+    "password": "Password",
+    "restoringSession": "Restoring session...",
+    "signedInAs": "Signed in as {{email}}",
+    "signingIn": "Signing in..."
+  },
+  "benefits": {
+    "title": "Benefits"
+  },
+  "categories": {
+    "iconPlaceholder": "Icon",
+    "namePlaceholder": "Category name",
+    "slugPlaceholder": "Slug",
+    "title": "Categories"
+  },
+  "cities": {
+    "countryPlaceholder": "Country",
+    "namePlaceholder": "City name",
+    "title": "Cities"
+  },
+  "countries": {
+    "codePlaceholder": "Code",
+    "namePlaceholder": "Country name",
+    "title": "Countries"
+  },
+  "dashboard": {
+    "title": "Dashboard"
+  },
+  "errors": {
+    "apiUnavailable": "Could not reach the API at {{url}}. Check that pnpm api:dev is running and VITE_API_BASE_URL is set to http://127.0.0.1:4000.",
+    "loadAdminData": "Could not load admin data.",
+    "requestFailed": "Request failed.",
+    "requestFailedAt": "Request failed at {{url}}."
+  },
+  "partners": {
+    "title": "Partners"
+  },
+  "records": {
+    "empty": "No records yet.",
+    "loading": "Loading setup data...",
+    "noCountry": "No country"
+  },
+  "settings": {
+    "language": "Language"
+  },
+  "subscription": {
+    "title": "Subscription"
+  }
+}

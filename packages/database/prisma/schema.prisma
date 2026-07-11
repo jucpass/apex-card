@@ -1,0 +1,388 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum UserRole {
+  USER
+  ADMIN
+  SUPER_ADMIN
+  PARTNER
+}
+
+enum UserStatus {
+  ACTIVE
+  SUSPENDED
+  DELETED
+}
+
+enum MembershipStatus {
+  FREE
+  ACTIVE
+  EXPIRED
+  CANCELLED
+  LIFETIME
+  GRANTED
+}
+
+enum PartnerStatus {
+  DRAFT
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+}
+
+enum DiscountType {
+  PERCENTAGE
+  FIXED_AMOUNT
+  CUSTOM
+}
+
+enum VisitMethod {
+  QR_SCAN
+  MANUAL
+  PARTNER_VALIDATION
+}
+
+enum ReviewStatus {
+  VISIBLE
+  HIDDEN
+  PENDING
+  REJECTED
+}
+
+enum BannerStatus {
+  DRAFT
+  ACTIVE
+  INACTIVE
+}
+
+enum VoucherStatus {
+  ISSUED
+  PAID
+  REDEEMED
+  EXPIRED
+  CANCELLED
+  REFUNDED
+}
+
+enum PartnerPayoutStatus {
+  NOT_DUE
+  PENDING
+  PAID
+  FAILED
+  CANCELLED
+}
+
+model User {
+  id             String     @id @default(cuid())
+  supabaseAuthId String?    @unique
+  email          String     @unique
+  phone          String?    @unique
+  fullName       String
+  dateOfBirth    DateTime?
+  profilePhoto   String?
+  language       String     @default("en")
+  role           UserRole   @default(USER)
+  status         UserStatus @default(ACTIVE)
+  homeCountry    Country?   @relation(fields: [homeCountryId], references: [id], onDelete: SetNull)
+  homeCountryId  String?
+
+  memberships     Membership[]
+  partnerAccounts PartnerUser[]
+  visits          PartnerVisit[] @relation("VisitUser")
+  scannedVisits   PartnerVisit[] @relation("VisitScanner")
+  reviews         Review[]
+  vouchers        Voucher[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([role])
+  @@index([status])
+  @@index([homeCountryId])
+}
+
+model Membership {
+  id String @id @default(cuid())
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String
+
+  status                      MembershipStatus @default(FREE)
+  isStudent                   Boolean          @default(false)
+  isWorker                    Boolean          @default(false)
+  revenueCatCustomerId        String?
+  revenueCatEntitlement       String?
+  revenueCatProductId         String?
+  revenueCatOriginalAppUserId String?
+  currentPeriodStart          DateTime?
+  currentPeriodEnd            DateTime?
+  cancelledAt                 DateTime?
+  expiresAt                   DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([status])
+  @@index([revenueCatCustomerId])
+}
+
+model Country {
+  id String @id @default(cuid())
+
+  name      String
+  code      String  @unique
+  phoneCode String?
+  currency  String?
+  active    Boolean @default(true)
+
+  cities       City[]
+  users        User[]
+  partners     Partner[]
+  promoBanners PromoBanner[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([active])
+}
+
+model City {
+  id String @id @default(cuid())
+
+  name   String
+  slug   String
+  active Boolean @default(true)
+
+  country   Country @relation(fields: [countryId], references: [id], onDelete: Cascade)
+  countryId String
+
+  partners     Partner[]
+  promoBanners PromoBanner[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([countryId, slug])
+  @@index([active])
+}
+
+model Category {
+  id String @id @default(cuid())
+
+  name   String
+  slug   String  @unique
+  icon   String?
+  active Boolean @default(true)
+
+  partners     Partner[]
+  promoBanners PromoBanner[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([active])
+}
+
+model Partner {
+  id String @id @default(cuid())
+
+  name         String
+  slug         String        @unique
+  description  String?
+  logo         String?
+  coverImage   String?
+  email        String?
+  phone        String?
+  website      String?
+  addressLine1 String?
+  addressLine2 String?
+  postalCode   String?
+  latitude     Decimal?      @db.Decimal(9, 6)
+  longitude    Decimal?      @db.Decimal(9, 6)
+  status       PartnerStatus @default(DRAFT)
+
+  country    Country  @relation(fields: [countryId], references: [id], onDelete: Restrict)
+  countryId  String
+  city       City?    @relation(fields: [cityId], references: [id], onDelete: SetNull)
+  cityId     String?
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  categoryId String
+
+  users        PartnerUser[]
+  benefits     Benefit[]
+  visits       PartnerVisit[]
+  reviews      Review[]
+  vouchers     Voucher[]
+  promoBanners PromoBanner[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([countryId])
+  @@index([cityId])
+  @@index([categoryId])
+  @@index([status])
+}
+
+model PartnerUser {
+  id String @id @default(cuid())
+
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  partner   Partner @relation(fields: [partnerId], references: [id], onDelete: Cascade)
+  partnerId String
+  title     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, partnerId])
+  @@index([partnerId])
+}
+
+model Benefit {
+  id String @id @default(cuid())
+
+  partner   Partner @relation(fields: [partnerId], references: [id], onDelete: Cascade)
+  partnerId String
+
+  title       String
+  description String?
+  type        DiscountType @default(CUSTOM)
+  value       Decimal?     @db.Decimal(10, 2)
+  currency    String?
+  terms       String?
+  isActive    Boolean      @default(true)
+  startsAt    DateTime?
+  endsAt      DateTime?
+
+  visits   PartnerVisit[]
+  vouchers Voucher[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([partnerId])
+  @@index([isActive])
+  @@index([startsAt, endsAt])
+}
+
+model PartnerVisit {
+  id String @id @default(cuid())
+
+  user        User        @relation("VisitUser", fields: [userId], references: [id], onDelete: Cascade)
+  userId      String
+  partner     Partner     @relation(fields: [partnerId], references: [id], onDelete: Cascade)
+  partnerId   String
+  benefit     Benefit?    @relation(fields: [benefitId], references: [id], onDelete: SetNull)
+  benefitId   String?
+  method      VisitMethod
+  scannedBy   User?       @relation("VisitScanner", fields: [scannedById], references: [id], onDelete: SetNull)
+  scannedById String?
+  notes       String?
+  visitedAt   DateTime    @default(now())
+
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([partnerId])
+  @@index([benefitId])
+  @@index([scannedById])
+  @@index([visitedAt])
+}
+
+model Review {
+  id String @id @default(cuid())
+
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  partner   Partner @relation(fields: [partnerId], references: [id], onDelete: Cascade)
+  partnerId String
+
+  rating  Int
+  comment String?
+  status  ReviewStatus @default(VISIBLE)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, partnerId])
+  @@index([partnerId])
+  @@index([status])
+}
+
+model PromoBanner {
+  id String @id @default(cuid())
+
+  title     String
+  subtitle  String?
+  imageUrl  String
+  linkUrl   String?
+  status    BannerStatus @default(DRAFT)
+  startsAt  DateTime?
+  endsAt    DateTime?
+  sortOrder Int          @default(0)
+
+  country    Country?  @relation(fields: [countryId], references: [id], onDelete: SetNull)
+  countryId  String?
+  city       City?     @relation(fields: [cityId], references: [id], onDelete: SetNull)
+  cityId     String?
+  category   Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  categoryId String?
+  partner    Partner?  @relation(fields: [partnerId], references: [id], onDelete: SetNull)
+  partnerId  String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status])
+  @@index([startsAt, endsAt])
+  @@index([countryId])
+  @@index([cityId])
+}
+
+model Voucher {
+  id String @id @default(cuid())
+
+  code      String   @unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  partner   Partner  @relation(fields: [partnerId], references: [id], onDelete: Restrict)
+  partnerId String
+  benefit   Benefit? @relation(fields: [benefitId], references: [id], onDelete: SetNull)
+  benefitId String?
+
+  title          String
+  description    String?
+  totalAmount    Decimal             @db.Decimal(10, 2)
+  partnerAmount  Decimal             @db.Decimal(10, 2)
+  apexCommission Decimal             @db.Decimal(10, 2)
+  currency       String              @default("EUR")
+  status         VoucherStatus       @default(ISSUED)
+  payoutStatus   PartnerPayoutStatus @default(NOT_DUE)
+
+  paymentProvider  String?
+  paymentReference String?
+  redeemedAt       DateTime?
+  redeemedBy       String?
+  redemptionNotes  String?
+  expiresAt        DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([partnerId])
+  @@index([benefitId])
+  @@index([status])
+  @@index([payoutStatus])
+  @@index([expiresAt])
+}

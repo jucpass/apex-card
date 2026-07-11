@@ -1,0 +1,40 @@
+{
+  "common": {
+    "add": "Add",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "save": "Save"
+  },
+  "auth": {
+    "email": "Email",
+    "login": "Log in",
+    "logout": "Log out",
+    "password": "Password"
+  },
+  "benefits": {
+    "title": "Benefits"
+  },
+  "countries": {
+    "title": "Countries"
+  },
+  "cities": {
+    "title": "Cities"
+  },
+  "dashboard": {
+    "title": "Dashboard"
+  },
+  "mobile": {
+    "foundationRunning": "Mobile app foundation is running.",
+    "title": "Hello Apex Card Mobile"
+  },
+  "partners": {
+    "title": "Partners"
+  },
+  "settings": {
+    "language": "Language"
+  },
+  "subscription": {
+    "title": "Subscription"
+  }
+}

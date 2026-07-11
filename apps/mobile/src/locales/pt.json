@@ -1,0 +1,40 @@
+{
+  "common": {
+    "add": "Adicionar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "save": "Guardar"
+  },
+  "auth": {
+    "email": "Email",
+    "login": "Entrar",
+    "logout": "Sair",
+    "password": "Palavra-passe"
+  },
+  "benefits": {
+    "title": "Benefícios"
+  },
+  "countries": {
+    "title": "Países"
+  },
+  "cities": {
+    "title": "Cidades"
+  },
+  "dashboard": {
+    "title": "Painel"
+  },
+  "mobile": {
+    "foundationRunning": "A base da aplicação móvel está em execução.",
+    "title": "Olá Apex Card Mobile"
+  },
+  "partners": {
+    "title": "Parceiros"
+  },
+  "settings": {
+    "language": "Idioma"
+  },
+  "subscription": {
+    "title": "Subscrição"
+  }
+}
