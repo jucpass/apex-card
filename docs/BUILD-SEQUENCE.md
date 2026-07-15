@@ -68,12 +68,12 @@ Build the administration portal **before** the mobile application.
 
 -   [x] Admin authentication - basic Supabase login/session
 -   [ ] Dashboard
--   [x] Countries CRUD - basic/test
--   [x] Cities CRUD - basic/test
--   [x] Categories CRUD - basic/test
--   [ ] Partners CRUD
+-   [x] Countries CRUD - production (search/filter/sort/pagination, Partner/Explore/featured availability, destination image upload, activate/deactivate lifecycle)
+-   [x] Cities CRUD - production (search/filter/sort/pagination, country-scoped uniqueness, activate/deactivate lifecycle)
+-   [x] Categories CRUD - production (search/filter/sort/pagination, activate/deactivate lifecycle)
+-   [x] Partners CRUD - core production (Draft lifecycle, list/search/filter/sort/pagination, Details Workspace with edit mode, image management with cover selection and activation gating; locations/discounts/featured/ratings/analytics deferred to later tasks)
 -   [ ] Benefits/Discounts CRUD
--   [ ] Users management
+-   [x] Users management
 -   [ ] Ratings moderation
 
 **Goal:** Allow administrators to populate the system with real data.

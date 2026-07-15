@@ -12,13 +12,19 @@ body {
   color: #111827;
 }
 
-button,
-input,
-select {
+/*
+ * Legacy plain-HTML control styling for the pre-shadcn MVP setup tool
+ * (the Supabase login screen and LocationsPage's Countries/Cities/Categories
+ * forms). Scoped to `.admin-shell` so it never leaks onto shadcn/ui
+ * components (Sidebar, Button, etc.) elsewhere in the Admin Portal.
+ */
+.admin-shell button,
+.admin-shell input,
+.admin-shell select {
   font: inherit;
 }
 
-button {
+.admin-shell button {
   border: 1px solid #111827;
   background: #111827;
   color: white;
@@ -26,18 +32,18 @@ button {
   padding: 0.65rem 0.9rem;
 }
 
-button:disabled {
+.admin-shell button:disabled {
   cursor: not-allowed;
   opacity: 0.5;
 }
 
-button.danger {
+.admin-shell button.danger {
   border-color: #b42318;
   background: #b42318;
 }
 
-input,
-select {
+.admin-shell input,
+.admin-shell select {
   border: 1px solid #cbd5e1;
   min-width: 0;
   padding: 0.65rem 0.75rem;

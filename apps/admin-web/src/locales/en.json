@@ -5,10 +5,13 @@
     "delete": "Delete",
     "edit": "Edit",
     "refresh": "Refresh",
-    "save": "Save"
+    "save": "Save",
+    "yes": "Yes",
+    "no": "No"
   },
   "admin": {
     "apiBase": "API: {{url}}",
+    "brandName": "Apex Card",
     "eyebrow": "Apex Card Admin",
     "setupTitle": "MVP setup data"
   },
@@ -30,23 +33,359 @@
     "title": "Benefits"
   },
   "categories": {
-    "iconPlaceholder": "Icon",
-    "namePlaceholder": "Category name",
-    "slugPlaceholder": "Slug",
-    "title": "Categories"
+    "title": "Categories",
+    "description": "Organise the categories used to browse partners and discounts.",
+    "totalCount_one": "{{count}} category",
+    "totalCount_other": "{{count}} categories",
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "filters": {
+      "searchPlaceholder": "Search by name or slug",
+      "status": "Status",
+      "statusAll": "All statuses",
+      "clear": "Clear filters"
+    },
+    "table": {
+      "icon": "Icon",
+      "name": "Name",
+      "slug": "Slug",
+      "status": "Status",
+      "created": "Created",
+      "actions": "Actions"
+    },
+    "actions": {
+      "openMenu": "Open actions for {{name}}",
+      "create": "Create category",
+      "edit": "Edit",
+      "activate": "Activate",
+      "deactivate": "Deactivate"
+    },
+    "confirm": {
+      "deactivateTitle": "Deactivate this category?",
+      "deactivateDescription": "{{name}} will no longer be available for new Partner assignments or mobile browsing. Existing Partner relationships are preserved, and you can reactivate it at any time."
+    },
+    "form": {
+      "createTitle": "Create category",
+      "createDescription": "Add a new category for organising partners and discounts.",
+      "editTitle": "Edit category",
+      "editDescription": "Update this category's details.",
+      "nameLabel": "Name",
+      "nameRequired": "Name must be at least 2 characters.",
+      "slugLabel": "Slug",
+      "slugHint": "Lowercase, hyphen-separated, and unique. Auto-generated from the name — you can edit it.",
+      "slugInvalid": "Slug must be lowercase letters, numbers, and hyphens only.",
+      "iconLabel": "Icon",
+      "iconNone": "No icon",
+      "activeLabel": "Status",
+      "saving": "Saving...",
+      "createConfirm": "Create category"
+    },
+    "icons": {
+      "utensils": "Restaurants",
+      "coffee": "Coffee & Cafés",
+      "shopping-bag": "Shopping",
+      "shirt": "Fashion",
+      "dumbbell": "Fitness",
+      "heart-pulse": "Health",
+      "sparkles": "Beauty",
+      "car": "Transport",
+      "plane": "Travel",
+      "hotel": "Hotels",
+      "film": "Cinema",
+      "music": "Music",
+      "book-open": "Books",
+      "graduation-cap": "Education",
+      "briefcase": "Business",
+      "wrench": "Services",
+      "scissors": "Salon & Spa",
+      "gamepad-2": "Entertainment",
+      "camera": "Photography",
+      "gift": "Gifts",
+      "map-pin": "Local",
+      "ticket": "Events",
+      "stethoscope": "Wellness",
+      "baby": "Family"
+    },
+    "empty": {
+      "noCategories": "No categories yet.",
+      "noResults": "No categories match your filters.",
+      "noResultsHint": "Try adjusting your search or filters."
+    },
+    "errors": {
+      "forbidden": "You don't have permission to view this page.",
+      "loadFailed": "Could not load categories.",
+      "createFailed": "Could not create this category.",
+      "updateFailed": "Could not update this category.",
+      "duplicateName": "A category with this name already exists.",
+      "statusUpdateFailed": "Could not update the category status."
+    },
+    "success": {
+      "created": "{{name}} was created.",
+      "updated": "{{name}} was updated.",
+      "activated": "{{name}} was activated.",
+      "deactivated": "{{name}} was deactivated."
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "pageInfo": "Page {{page}} of {{totalPages}}",
+      "rangeInfo": "Showing {{from}}–{{to}} of {{total}}"
+    }
   },
   "cities": {
-    "countryPlaceholder": "Country",
-    "namePlaceholder": "City name",
-    "title": "Cities"
+    "title": "Cities",
+    "description": "Manage the cities available within each country.",
+    "totalCount_one": "{{count}} city",
+    "totalCount_other": "{{count}} cities",
+    "filters": {
+      "searchPlaceholder": "Search by name or slug",
+      "country": "Country",
+      "countryAll": "All countries",
+      "status": "Status",
+      "statusAll": "All statuses",
+      "clear": "Clear filters"
+    },
+    "table": {
+      "name": "Name",
+      "slug": "Slug",
+      "country": "Country",
+      "status": "Status",
+      "created": "Created",
+      "actions": "Actions"
+    },
+    "actions": {
+      "openMenu": "Open actions for {{name}}",
+      "create": "Create city",
+      "edit": "Edit",
+      "activate": "Activate",
+      "deactivate": "Deactivate"
+    },
+    "confirm": {
+      "deactivateTitle": "Deactivate this city?",
+      "deactivateDescription": "{{name}} will no longer be available for new Partner assignments. Existing Partner relationships are preserved, and you can reactivate it at any time."
+    },
+    "form": {
+      "createTitle": "Create city",
+      "createDescription": "Add a new city to a country.",
+      "editTitle": "Edit city",
+      "editDescription": "Update this city's details.",
+      "countryLabel": "Country",
+      "countryPlaceholder": "Select a country",
+      "countryRequired": "A country is required.",
+      "nameLabel": "Name",
+      "nameRequired": "Name must be at least 2 characters.",
+      "slugLabel": "Slug",
+      "slugHint": "Lowercase, hyphen-separated, and unique within this country. Auto-generated from the name — you can edit it.",
+      "slugInvalid": "Slug must be lowercase letters, numbers, and hyphens only.",
+      "activeLabel": "Status",
+      "statusLabel": "Status",
+      "saving": "Saving...",
+      "createConfirm": "Create city"
+    },
+    "empty": {
+      "noCities": "No cities yet.",
+      "noResults": "No cities match your filters.",
+      "noResultsHint": "Try adjusting your search or filters."
+    },
+    "errors": {
+      "forbidden": "You don't have permission to view this page.",
+      "loadFailed": "Could not load cities.",
+      "createFailed": "Could not create this city.",
+      "updateFailed": "Could not update this city.",
+      "duplicateName": "A city with this name already exists in this country.",
+      "statusUpdateFailed": "Could not update the city status."
+    },
+    "success": {
+      "created": "{{name}} was created.",
+      "updated": "{{name}} was updated.",
+      "activated": "{{name}} was activated.",
+      "deactivated": "{{name}} was deactivated."
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "pageInfo": "Page {{page}} of {{totalPages}}",
+      "rangeInfo": "Showing {{from}}–{{to}} of {{total}}"
+    }
   },
   "countries": {
-    "codePlaceholder": "Code",
-    "namePlaceholder": "Country name",
-    "title": "Countries"
+    "title": "Countries",
+    "description": "Manage the global country list and Apex Card destination availability.",
+    "totalCount_one": "{{count}} country",
+    "totalCount_other": "{{count}} countries",
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "filters": {
+      "searchPlaceholder": "Search by name or code",
+      "status": "Status",
+      "statusAll": "All statuses",
+      "availableForPartners": "Partner availability",
+      "availableForPartnersAll": "All Partner availability",
+      "available": "Available",
+      "unavailable": "Unavailable",
+      "visibleInExplore": "Explore visibility",
+      "visibleInExploreAll": "All Explore visibility",
+      "visible": "Visible",
+      "hidden": "Hidden",
+      "featured": "Featured",
+      "featuredAll": "All featured",
+      "featuredYes": "Featured",
+      "featuredNo": "Not featured",
+      "region": "Region",
+      "regionAll": "All regions",
+      "clear": "Clear filters"
+    },
+    "table": {
+      "image": "Image",
+      "country": "Country",
+      "phoneCurrency": "Phone / Currency",
+      "status": "Status",
+      "availability": "Availability",
+      "availableForPartners": "Available for Partners",
+      "visibleInExplore": "Visible in Explore",
+      "featured": "Featured",
+      "created": "Created",
+      "actions": "Actions"
+    },
+    "actions": {
+      "openMenu": "Open actions for {{name}}",
+      "create": "Create country",
+      "edit": "Edit",
+      "activate": "Activate",
+      "deactivate": "Deactivate"
+    },
+    "confirm": {
+      "deactivateTitle": "Deactivate this country?",
+      "deactivateDescription": "{{name}} will be marked as an invalid/deprecated master-data record. It stays available for historical references, but should generally not be selected for new records. This does not affect Partner availability or Explore visibility, which you can also review before deactivating."
+    },
+    "form": {
+      "createTitle": "Create country",
+      "createDescription": "Add a new country to the global list.",
+      "editTitle": "Edit country",
+      "editDescription": "Update this country's details and Apex Card availability.",
+      "identitySection": "Identity",
+      "nameLabel": "Country name",
+      "nameRequired": "Country name must be at least 2 characters.",
+      "codeLabel": "ISO code",
+      "codeInvalid": "Code must be 2 or 3 letters, e.g. PT.",
+      "phoneCodeLabel": "Phone code",
+      "currencyLabel": "Currency",
+      "activeLabel": "Active",
+      "activeHint": "Whether this is a valid, current global country record.",
+      "availabilityCreateHint": "Partner availability, Explore visibility, and a destination image can be configured after creating this country.",
+      "availabilitySection": "Apex Card availability",
+      "availableForPartnersLabel": "Available for Partners",
+      "availableForPartnersHint": "Allows this country to be selected for new Partner registrations and locations.",
+      "visibleInExploreLabel": "Visible in Explore",
+      "visibleInExploreHint": "Shows this country as a destination in the mobile Explore screen.",
+      "exploreRequiresImageWarning": "A destination image is required before this country can be visible in Explore.",
+      "featuredLabel": "Featured",
+      "featuredHint": "Highlights this country in the featured/popular destinations area.",
+      "displayOrderLabel": "Display order",
+      "regionLabel": "Region",
+      "regionNone": "No region",
+      "statusLabel": "Status",
+      "saving": "Saving...",
+      "createConfirm": "Create country"
+    },
+    "regions": {
+      "europe": "Europe",
+      "africa": "Africa",
+      "americas": "Americas",
+      "asia": "Asia",
+      "oceania": "Oceania",
+      "middleEast": "Middle East"
+    },
+    "image": {
+      "label": "Destination image",
+      "upload": "Upload image",
+      "replace": "Replace image",
+      "remove": "Remove",
+      "altTextLabel": "Image alt text",
+      "altTextPlaceholder": "Describe the image, e.g. \"Lisbon skyline at sunset\"",
+      "hint": "JPEG, PNG, or WebP. Max 5MB.",
+      "errors": {
+        "invalidType": "Image must be JPEG, PNG, or WebP.",
+        "tooLarge": "Image must be 5MB or smaller.",
+        "uploadFailed": "Could not upload the image.",
+        "removeFailed": "Could not remove the image."
+      }
+    },
+    "empty": {
+      "noCountries": "No countries yet.",
+      "noResults": "No countries match your filters.",
+      "noResultsHint": "Try adjusting your search or filters."
+    },
+    "errors": {
+      "forbidden": "You don't have permission to view this page.",
+      "loadFailed": "Could not load countries.",
+      "createFailed": "Could not create this country.",
+      "updateFailed": "Could not update this country.",
+      "duplicateName": "A country with this name already exists.",
+      "statusUpdateFailed": "Could not update the country status."
+    },
+    "success": {
+      "created": "{{name}} was created.",
+      "updated": "{{name}} was updated.",
+      "activated": "{{name}} was activated.",
+      "deactivated": "{{name}} was deactivated."
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "pageInfo": "Page {{page}} of {{totalPages}}",
+      "rangeInfo": "Showing {{from}}–{{to}} of {{total}}"
+    }
   },
   "dashboard": {
-    "title": "Dashboard"
+    "title": "Dashboard",
+    "description": "A quick look at what's happening across Apex Card.",
+    "dateRangePlaceholder": "Last 30 days",
+    "refresh": "Refresh",
+    "kpi": {
+      "totalMembers": "Total Members",
+      "activeMembers": "Active Members",
+      "totalPartners": "Total Partners",
+      "activeDiscounts": "Active Discounts",
+      "comparisonPeriod": "vs last 30 days"
+    },
+    "attention": {
+      "title": "Needs your attention",
+      "review": "Review",
+      "partnersAwaitingApproval": {
+        "title": "Partners awaiting approval",
+        "description": "New partner applications ready for review"
+      },
+      "reviewsAwaitingModeration": {
+        "title": "Reviews awaiting moderation",
+        "description": "Member reviews flagged for moderation"
+      },
+      "discountsExpiringSoon": {
+        "title": "Discounts expiring soon",
+        "description": "Benefits ending within 7 days"
+      },
+      "subscriptionIssues": {
+        "title": "Subscription issues",
+        "description": "Members with failed or pending renewals"
+      }
+    },
+    "growth": {
+      "title": "Membership growth",
+      "placeholderLabel": "Membership growth chart placeholder",
+      "placeholderNote": "Chart integration is planned for a future iteration."
+    },
+    "activity": {
+      "title": "Recent activity",
+      "partnerCreated": "New partner created",
+      "reviewSubmitted": "Review submitted",
+      "subscriptionRenewed": "Subscription renewed",
+      "discountUpdated": "Discount updated",
+      "administratorAction": "Administrator action logged"
+    }
   },
   "errors": {
     "apiUnavailable": "Could not reach the API at {{url}}. Check that pnpm api:dev is running and VITE_API_BASE_URL is set to http://127.0.0.1:4000.",
@@ -54,8 +393,356 @@
     "requestFailed": "Request failed.",
     "requestFailedAt": "Request failed at {{url}}."
   },
+  "layout": {
+    "notifications": "Notifications",
+    "search": "Search",
+    "toggleSidebar": "Toggle sidebar"
+  },
+  "members": {
+    "title": "Members",
+    "description": "Find, review, and manage Apex Card members.",
+    "totalCount_one": "{{count}} member",
+    "totalCount_other": "{{count}} members",
+    "status": {
+      "active": "Active",
+      "suspended": "Suspended",
+      "deleted": "Deleted"
+    },
+    "membershipStatus": {
+      "active": "Active",
+      "expired": "Expired",
+      "cancelled": "Cancelled"
+    },
+    "membershipType": {
+      "free": "Free",
+      "premium": "Premium",
+      "student": "Student",
+      "worker": "Worker",
+      "grantedIndicator": "Granted"
+    },
+    "filters": {
+      "searchPlaceholder": "Search by name or email",
+      "status": "Account status",
+      "statusAll": "All statuses",
+      "membershipStatus": "Membership status",
+      "membershipStatusAll": "All membership statuses",
+      "language": "Language",
+      "languageAll": "All languages",
+      "clear": "Clear filters"
+    },
+    "table": {
+      "member": "Member",
+      "status": "Account status",
+      "membershipStatus": "Membership",
+      "language": "Language",
+      "registered": "Registered",
+      "actions": "Actions"
+    },
+    "actions": {
+      "openMenu": "Open actions for {{name}}",
+      "view": "View",
+      "edit": "Edit",
+      "suspend": "Suspend",
+      "reactivate": "Reactivate",
+      "grantMembership": "Grant membership",
+      "revokeMembership": "Revoke membership",
+      "resetMembership": "Remove membership",
+      "working": "Working..."
+    },
+    "confirm": {
+      "suspendTitle": "Suspend this member?",
+      "suspendDescription": "{{name}} will lose access to the app until reactivated.",
+      "reactivateTitle": "Reactivate this member?",
+      "reactivateDescription": "{{name}} will regain access to the app.",
+      "revokeTitle": "Revoke membership?",
+      "revokeDescription": "{{name}}'s membership will be cancelled. Their plan stays visible, marked as cancelled.",
+      "resetTitle": "Remove this membership?",
+      "resetDescription": "{{name}} will be returned to the Free plan. This clears the current plan, expiry, and cancellation entirely."
+    },
+    "grant": {
+      "title": "Grant membership",
+      "description": "Choose the plan to grant {{name}}.",
+      "typeLabel": "Membership type",
+      "durationLabel": "Duration",
+      "durationUnlimited": "Unlimited",
+      "durationExpiryDate": "Expiry date",
+      "expiryDateLabel": "Expiry date",
+      "expiryDateRequired": "An expiry date is required.",
+      "confirm": "Grant membership"
+    },
+    "empty": {
+      "noMembers": "No members yet.",
+      "noResults": "No members match your filters.",
+      "noResultsHint": "Try adjusting your search or filters."
+    },
+    "errors": {
+      "forbidden": "You don't have permission to view this page.",
+      "loadFailed": "Could not load members.",
+      "loadMemberFailed": "Could not load this member.",
+      "updateFailed": "Could not update this member.",
+      "phoneConflict": "This phone number is already used by another member.",
+      "statusUpdateFailed": "Could not update the account status.",
+      "membershipUpdateFailed": "Could not update the membership."
+    },
+    "success": {
+      "updated": "Member updated successfully.",
+      "suspended": "{{name}} was suspended.",
+      "reactivated": "{{name}} was reactivated.",
+      "membershipGranted": "Membership granted to {{name}}.",
+      "membershipRevoked": "Membership revoked from {{name}}.",
+      "membershipReset": "{{name}}'s membership was removed — back to Free."
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "pageInfo": "Page {{page}} of {{totalPages}}",
+      "rangeInfo": "Showing {{from}}–{{to}} of {{total}}"
+    },
+    "details": {
+      "title": "Member details",
+      "personalInfo": "Personal information",
+      "accountStatus": "Account status",
+      "membershipDetails": "Membership details",
+      "adminActions": "Administrative actions",
+      "fullName": "Full name",
+      "email": "Email",
+      "phone": "Phone",
+      "language": "Preferred language",
+      "dateOfBirth": "Date of birth",
+      "homeCountry": "Home country",
+      "registeredAt": "Registered on",
+      "updatedAt": "Last updated",
+      "grantedManually": "Granted manually",
+      "renewalExpiryDate": "Renewal / Expiry date",
+      "expiredOn": "Expired on",
+      "cancelledOn": "Cancelled on",
+      "membershipFreeHint": "This member is on the Free plan — not subscribed and not granted access.",
+      "notProvided": "Not provided"
+    },
+    "edit": {
+      "title": "Edit member",
+      "description": "Update this member's profile information.",
+      "fullNameLabel": "Full name",
+      "fullNameRequired": "Full name must be at least 2 characters.",
+      "phoneLabel": "Phone",
+      "phonePlaceholder": "Not provided",
+      "languageLabel": "Preferred language",
+      "homeCountryLabel": "Home country",
+      "homeCountryPlaceholder": "No home country",
+      "saving": "Saving...",
+      "membershipSectionTitle": "Membership",
+      "membershipFreeHint": "This member is on the Free plan. Use Grant membership to assign a plan.",
+      "currentStatusPrefix": "Current status:"
+    }
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "members": "Members",
+    "partners": "Partners",
+    "discounts": "Discounts",
+    "content": "Content",
+    "contentHomeBanners": "Home Banners",
+    "contentPromotions": "Promotions",
+    "locations": "Locations",
+    "locationsCountries": "Countries",
+    "locationsCities": "Cities",
+    "locationsCategories": "Categories",
+    "analytics": "Analytics",
+    "administration": "Administration",
+    "administrators": "Administrators",
+    "roles": "Roles",
+    "permissions": "Permissions",
+    "settings": "Settings",
+    "reviews": "Reviews"
+  },
   "partners": {
-    "title": "Partners"
+    "title": "Partners",
+    "description": "Create and manage the businesses participating in Apex Card.",
+    "totalCount_one": "{{count}} partner",
+    "totalCount_other": "{{count}} partners",
+    "status": {
+      "draft": "Draft",
+      "active": "Active",
+      "inactive": "Inactive",
+      "suspended": "Suspended"
+    },
+    "filters": {
+      "searchPlaceholder": "Search by name, email, phone, or WhatsApp",
+      "status": "Status",
+      "statusAll": "All statuses",
+      "country": "Country",
+      "countryAll": "All countries",
+      "city": "City",
+      "cityAll": "All cities",
+      "clear": "Clear filters"
+    },
+    "table": {
+      "name": "Business",
+      "contact": "Contact",
+      "whatsappPrefix": "WhatsApp:",
+      "location": "Location",
+      "status": "Status",
+      "updated": "Updated",
+      "actions": "Actions"
+    },
+    "actions": {
+      "openMenu": "Open actions for {{name}}",
+      "create": "Create partner",
+      "view": "View",
+      "edit": "Edit",
+      "activate": "Activate",
+      "deactivate": "Deactivate"
+    },
+    "confirm": {
+      "activateTitle": "Activate this partner?",
+      "activateDescription": "{{name}} will be marked as active. Additional configuration (categories, discounts, media) is still required before it is fully published in the mobile app.",
+      "deactivateTitle": "Deactivate this partner?",
+      "deactivateDescription": "{{name}} will be removed from future public and mobile listings. All data is preserved and the partner remains editable."
+    },
+    "createPage": {
+      "title": "Create partner",
+      "description": "New partners start as Draft — details can be completed and activated later.",
+      "backToList": "Back to partners"
+    },
+    "details": {
+      "description": "Manage this partner's information and configuration.",
+      "editTitle": "Edit partner",
+      "overviewTitle": "Overview",
+      "contactTitle": "Contact",
+      "addressTitle": "Address",
+      "configTitle": "Configuration",
+      "createdAt": "Created",
+      "updatedAt": "Last updated",
+      "coordinates": "Coordinates",
+      "notProvided": "Not provided",
+      "activeConfigNote": "This partner is active, but additional configuration (categories, discounts, media) is still required before full publication in the mobile app.",
+      "config": {
+        "locations": "Locations",
+        "discounts": "Discounts & Offers",
+        "media": "Media",
+        "featured": "Featured Status",
+        "ratings": "Ratings",
+        "analytics": "Analytics",
+        "notConfigured": "Not configured yet."
+      },
+      "openInMaps": "Open in Maps"
+    },
+    "form": {
+      "identitySection": "Business",
+      "contactSection": "Contact",
+      "addressSection": "Address",
+      "nameLabel": "Business name",
+      "nameRequired": "Business name must be at least 2 characters.",
+      "slugLabel": "Slug",
+      "slugHint": "Lowercase, hyphen-separated, and unique. Auto-generated from the name — you can edit it.",
+      "slugInvalid": "Slug must be lowercase letters, numbers, and hyphens only.",
+      "descriptionLabel": "Description",
+      "emailLabel": "Email",
+      "emailInvalid": "A valid email address is required.",
+      "phoneLabel": "Telephone",
+      "phoneInvalid": "Enter a valid phone number.",
+      "whatsappLabel": "WhatsApp",
+      "websiteLabel": "Website",
+      "websiteInvalid": "A valid website URL is required (include https://).",
+      "addressLine1Label": "Address line 1",
+      "addressLine2Label": "Address line 2",
+      "postalCodeLabel": "Postal code",
+      "countryLabel": "Country",
+      "countryPlaceholder": "Select a country",
+      "countryRequired": "A country is required.",
+      "cityLabel": "City",
+      "cityPlaceholder": "No city",
+      "latitudeLabel": "Latitude",
+      "latitudeInvalid": "Latitude must be between -90 and 90.",
+      "longitudeLabel": "Longitude",
+      "longitudeInvalid": "Longitude must be between -180 and 180.",
+      "saving": "Saving...",
+      "createConfirm": "Create partner",
+      "googleMapsUrlLabel": "Google Maps link",
+      "googleMapsUrlHint": "Paste the Google Maps share link — the mobile app uses it to open directions.",
+      "googleMapsUrlInvalid": "The link must be a Google Maps URL (e.g. https://maps.google.com/...)."
+    },
+    "empty": {
+      "noPartners": "No partners yet.",
+      "noResults": "No partners match your filters.",
+      "noResultsHint": "Try adjusting your search or filters."
+    },
+    "errors": {
+      "forbidden": "You don't have permission to view this page.",
+      "loadFailed": "Could not load partners.",
+      "loadOneFailed": "Could not load this partner.",
+      "notFound": "This partner was not found.",
+      "createFailed": "Could not create this partner.",
+      "updateFailed": "Could not update this partner.",
+      "statusUpdateFailed": "Could not update the partner status.",
+      "activationRequiresImage": "At least one partner image is required before activation. Upload an image in the partner's Images section first."
+    },
+    "success": {
+      "created": "Partner created as Draft.",
+      "updated": "Partner updated successfully.",
+      "activated": "{{name}} was activated.",
+      "deactivated": "{{name}} was deactivated."
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "pageInfo": "Page {{page}} of {{totalPages}}",
+      "rangeInfo": "Showing {{from}}–{{to}} of {{total}}"
+    },
+    "media": {
+      "title": "Images",
+      "rulesHint": "At least 1 image is required before activation. Maximum of 3 images. One image is always used as the cover.",
+      "slotsRemaining_one": "{{count}} slot remaining",
+      "slotsRemaining_other": "{{count}} slots remaining",
+      "slotsFull": "All image slots are in use.",
+      "empty": "No images yet. Upload at least one image before activating this partner.",
+      "select": "Select images",
+      "upload": "Upload images",
+      "replace": "Replace image",
+      "remove": "Remove image",
+      "setCover": "Set as cover",
+      "coverBadge": "Cover",
+      "position": "Image {{position}}",
+      "imageAlt": "{{name}} image {{position}}",
+      "pendingImageAlt": "Selected image {{position}}",
+      "confirmRemoveTitle": "Remove this image?",
+      "confirmRemoveDescription": "The image will be permanently removed from storage. If it is the cover, another image will become the cover automatically.",
+      "errors": {
+        "invalidType": "Images must be JPEG, PNG, or WebP.",
+        "tooLarge": "Each image must be 5MB or smaller.",
+        "tooMany": "A partner can have at most {{max}} images.",
+        "uploadFailed": "Could not upload the image(s).",
+        "removeFailed": "Could not remove the image.",
+        "coverFailed": "Could not update the cover image.",
+        "createUploadFailed": "The partner was created, but the image upload failed. Upload the images again from the Images section below."
+      },
+      "success": {
+        "uploaded": "Image(s) uploaded.",
+        "replaced": "Image replaced.",
+        "removed": "Image removed.",
+        "coverSet": "Cover image updated."
+      }
+    },
+    "categories": {
+      "title": "Categories",
+      "empty": "No categories assigned yet.",
+      "assign": "Assign category",
+      "assignPlaceholder": "Assign a category...",
+      "removeLabel": "Remove category {{name}}",
+      "allAssigned": "All active categories are assigned.",
+      "noneAvailable": "No active categories exist yet. Create them in the Categories module.",
+      "errors": {
+        "updateFailed": "Could not update the partner's categories."
+      },
+      "success": {
+        "assigned": "Category assigned.",
+        "removed": "Category removed."
+      }
+    }
+  },
+  "placeholder": {
+    "description": "This module is coming soon.",
+    "comingSoon": "This section is under construction."
   },
   "records": {
     "empty": "No records yet.",
@@ -63,9 +750,32 @@
     "noCountry": "No country"
   },
   "settings": {
-    "language": "Language"
+    "title": "Settings",
+    "description": "Manage your administrator account and preferences.",
+    "language": "Language",
+    "languageEnglish": "English",
+    "languagePortuguese": "Portuguese",
+    "languageDescription": "Choose the language used across the Admin Portal.",
+    "profile": {
+      "title": "Administrator information",
+      "fullName": "Full name",
+      "email": "Email",
+      "memberSince": "Administrator since",
+      "notProvided": "Not provided"
+    },
+    "security": {
+      "title": "Account security"
+    }
   },
   "subscription": {
     "title": "Subscription"
+  },
+  "userMenu": {
+    "openMenu": "Open user menu",
+    "signedInAs": "Signed in as",
+    "myAccount": "My Account",
+    "changePassword": "Change Password",
+    "changePasswordUnavailable": "Password changes aren't available yet.",
+    "signOut": "Sign Out"
   }
 }

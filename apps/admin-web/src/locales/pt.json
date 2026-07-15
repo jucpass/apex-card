@@ -5,10 +5,13 @@
     "delete": "Eliminar",
     "edit": "Editar",
     "refresh": "Atualizar",
-    "save": "Guardar"
+    "save": "Guardar",
+    "yes": "Sim",
+    "no": "Não"
   },
   "admin": {
     "apiBase": "API: {{url}}",
+    "brandName": "Apex Card",
     "eyebrow": "Admin Apex Card",
     "setupTitle": "Dados iniciais do MVP"
   },
@@ -30,23 +33,359 @@
     "title": "Benefícios"
   },
   "categories": {
-    "iconPlaceholder": "Ícone",
-    "namePlaceholder": "Nome da categoria",
-    "slugPlaceholder": "Slug",
-    "title": "Categorias"
+    "title": "Categorias",
+    "description": "Organize as categorias usadas para navegar por parceiros e descontos.",
+    "totalCount_one": "{{count}} categoria",
+    "totalCount_other": "{{count}} categorias",
+    "status": {
+      "active": "Ativa",
+      "inactive": "Inativa"
+    },
+    "filters": {
+      "searchPlaceholder": "Pesquisar por nome ou slug",
+      "status": "Status",
+      "statusAll": "Todos os status",
+      "clear": "Limpar filtros"
+    },
+    "table": {
+      "icon": "Ícone",
+      "name": "Nome",
+      "slug": "Slug",
+      "status": "Status",
+      "created": "Criada em",
+      "actions": "Ações"
+    },
+    "actions": {
+      "openMenu": "Abrir ações para {{name}}",
+      "create": "Criar categoria",
+      "edit": "Editar",
+      "activate": "Ativar",
+      "deactivate": "Desativar"
+    },
+    "confirm": {
+      "deactivateTitle": "Desativar esta categoria?",
+      "deactivateDescription": "{{name}} deixará de estar disponível para novas atribuições a Parceiros ou para navegação no aplicativo móvel. As relações existentes com Parceiros são preservadas, e você pode reativá-la a qualquer momento."
+    },
+    "form": {
+      "createTitle": "Criar categoria",
+      "createDescription": "Adicione uma nova categoria para organizar parceiros e descontos.",
+      "editTitle": "Editar categoria",
+      "editDescription": "Atualize os detalhes desta categoria.",
+      "nameLabel": "Nome",
+      "nameRequired": "O nome deve ter pelo menos 2 caracteres.",
+      "slugLabel": "Slug",
+      "slugHint": "Minúsculas, separado por hífens e único. Gerado automaticamente a partir do nome — você pode editá-lo.",
+      "slugInvalid": "O slug deve conter apenas letras minúsculas, números e hífens.",
+      "iconLabel": "Ícone",
+      "iconNone": "Sem ícone",
+      "activeLabel": "Status",
+      "saving": "Salvando...",
+      "createConfirm": "Criar categoria"
+    },
+    "icons": {
+      "utensils": "Restaurantes",
+      "coffee": "Cafés",
+      "shopping-bag": "Compras",
+      "shirt": "Moda",
+      "dumbbell": "Fitness",
+      "heart-pulse": "Saúde",
+      "sparkles": "Beleza",
+      "car": "Transporte",
+      "plane": "Viagens",
+      "hotel": "Hotéis",
+      "film": "Cinema",
+      "music": "Música",
+      "book-open": "Livros",
+      "graduation-cap": "Educação",
+      "briefcase": "Negócios",
+      "wrench": "Serviços",
+      "scissors": "Salão & Spa",
+      "gamepad-2": "Entretenimento",
+      "camera": "Fotografia",
+      "gift": "Presentes",
+      "map-pin": "Local",
+      "ticket": "Eventos",
+      "stethoscope": "Bem-estar",
+      "baby": "Família"
+    },
+    "empty": {
+      "noCategories": "Ainda não há categorias.",
+      "noResults": "Nenhuma categoria corresponde aos seus filtros.",
+      "noResultsHint": "Tente ajustar sua pesquisa ou filtros."
+    },
+    "errors": {
+      "forbidden": "Você não tem permissão para ver esta página.",
+      "loadFailed": "Não foi possível carregar as categorias.",
+      "createFailed": "Não foi possível criar esta categoria.",
+      "updateFailed": "Não foi possível atualizar esta categoria.",
+      "duplicateName": "Já existe uma categoria com este nome.",
+      "statusUpdateFailed": "Não foi possível atualizar o status da categoria."
+    },
+    "success": {
+      "created": "{{name}} foi criada.",
+      "updated": "{{name}} foi atualizada.",
+      "activated": "{{name}} foi ativada.",
+      "deactivated": "{{name}} foi desativada."
+    },
+    "pagination": {
+      "previous": "Anterior",
+      "next": "Próxima",
+      "pageInfo": "Página {{page}} de {{totalPages}}",
+      "rangeInfo": "Mostrando {{from}}–{{to}} de {{total}}"
+    }
   },
   "cities": {
-    "countryPlaceholder": "País",
-    "namePlaceholder": "Nome da cidade",
-    "title": "Cidades"
+    "title": "Cidades",
+    "description": "Gerencie as cidades disponíveis em cada país.",
+    "totalCount_one": "{{count}} cidade",
+    "totalCount_other": "{{count}} cidades",
+    "filters": {
+      "searchPlaceholder": "Pesquisar por nome ou slug",
+      "country": "País",
+      "countryAll": "Todos os países",
+      "status": "Status",
+      "statusAll": "Todos os status",
+      "clear": "Limpar filtros"
+    },
+    "table": {
+      "name": "Nome",
+      "slug": "Slug",
+      "country": "País",
+      "status": "Status",
+      "created": "Criada em",
+      "actions": "Ações"
+    },
+    "actions": {
+      "openMenu": "Abrir ações para {{name}}",
+      "create": "Criar cidade",
+      "edit": "Editar",
+      "activate": "Ativar",
+      "deactivate": "Desativar"
+    },
+    "confirm": {
+      "deactivateTitle": "Desativar esta cidade?",
+      "deactivateDescription": "{{name}} deixará de estar disponível para novas atribuições a Parceiros. As relações existentes com Parceiros são preservadas, e você pode reativá-la a qualquer momento."
+    },
+    "form": {
+      "createTitle": "Criar cidade",
+      "createDescription": "Adicione uma nova cidade a um país.",
+      "editTitle": "Editar cidade",
+      "editDescription": "Atualize os detalhes desta cidade.",
+      "countryLabel": "País",
+      "countryPlaceholder": "Selecione um país",
+      "countryRequired": "Um país é obrigatório.",
+      "nameLabel": "Nome",
+      "nameRequired": "O nome deve ter pelo menos 2 caracteres.",
+      "slugLabel": "Slug",
+      "slugHint": "Minúsculas, separado por hífens e único dentro deste país. Gerado automaticamente a partir do nome — você pode editá-lo.",
+      "slugInvalid": "O slug deve conter apenas letras minúsculas, números e hífens.",
+      "activeLabel": "Status",
+      "statusLabel": "Status",
+      "saving": "Salvando...",
+      "createConfirm": "Criar cidade"
+    },
+    "empty": {
+      "noCities": "Ainda não há cidades.",
+      "noResults": "Nenhuma cidade corresponde aos seus filtros.",
+      "noResultsHint": "Tente ajustar sua pesquisa ou filtros."
+    },
+    "errors": {
+      "forbidden": "Você não tem permissão para ver esta página.",
+      "loadFailed": "Não foi possível carregar as cidades.",
+      "createFailed": "Não foi possível criar esta cidade.",
+      "updateFailed": "Não foi possível atualizar esta cidade.",
+      "duplicateName": "Já existe uma cidade com este nome neste país.",
+      "statusUpdateFailed": "Não foi possível atualizar o status da cidade."
+    },
+    "success": {
+      "created": "{{name}} foi criada.",
+      "updated": "{{name}} foi atualizada.",
+      "activated": "{{name}} foi ativada.",
+      "deactivated": "{{name}} foi desativada."
+    },
+    "pagination": {
+      "previous": "Anterior",
+      "next": "Próxima",
+      "pageInfo": "Página {{page}} de {{totalPages}}",
+      "rangeInfo": "Mostrando {{from}}–{{to}} de {{total}}"
+    }
   },
   "countries": {
-    "codePlaceholder": "Código",
-    "namePlaceholder": "Nome do país",
-    "title": "Países"
+    "title": "Países",
+    "description": "Gerencie a lista global de países e a disponibilidade de destinos do Apex Card.",
+    "totalCount_one": "{{count}} país",
+    "totalCount_other": "{{count}} países",
+    "status": {
+      "active": "Ativo",
+      "inactive": "Inativo"
+    },
+    "filters": {
+      "searchPlaceholder": "Pesquisar por nome ou código",
+      "status": "Status",
+      "statusAll": "Todos os status",
+      "availableForPartners": "Disponibilidade para Parceiros",
+      "availableForPartnersAll": "Toda disponibilidade para Parceiros",
+      "available": "Disponível",
+      "unavailable": "Indisponível",
+      "visibleInExplore": "Visibilidade no Explore",
+      "visibleInExploreAll": "Toda visibilidade no Explore",
+      "visible": "Visível",
+      "hidden": "Oculto",
+      "featured": "Destaque",
+      "featuredAll": "Todos os destaques",
+      "featuredYes": "Em destaque",
+      "featuredNo": "Sem destaque",
+      "region": "Região",
+      "regionAll": "Todas as regiões",
+      "clear": "Limpar filtros"
+    },
+    "table": {
+      "image": "Imagem",
+      "country": "País",
+      "phoneCurrency": "Telefone / Moeda",
+      "status": "Status",
+      "availability": "Disponibilidade",
+      "availableForPartners": "Disponível para Parceiros",
+      "visibleInExplore": "Visível no Explore",
+      "featured": "Em destaque",
+      "created": "Criado em",
+      "actions": "Ações"
+    },
+    "actions": {
+      "openMenu": "Abrir ações para {{name}}",
+      "create": "Criar país",
+      "edit": "Editar",
+      "activate": "Ativar",
+      "deactivate": "Desativar"
+    },
+    "confirm": {
+      "deactivateTitle": "Desativar este país?",
+      "deactivateDescription": "{{name}} será marcado como um registro de dados mestre inválido/descontinuado. Ele permanece disponível para referências históricas, mas geralmente não deve ser selecionado para novos registros. Isso não afeta a disponibilidade para Parceiros nem a visibilidade no Explore, que você também pode revisar antes de desativar."
+    },
+    "form": {
+      "createTitle": "Criar país",
+      "createDescription": "Adicione um novo país à lista global.",
+      "editTitle": "Editar país",
+      "editDescription": "Atualize os detalhes deste país e a disponibilidade no Apex Card.",
+      "identitySection": "Identidade",
+      "nameLabel": "Nome do país",
+      "nameRequired": "O nome do país deve ter pelo menos 2 caracteres.",
+      "codeLabel": "Código ISO",
+      "codeInvalid": "O código deve ter 2 ou 3 letras, ex.: PT.",
+      "phoneCodeLabel": "Código telefônico",
+      "currencyLabel": "Moeda",
+      "activeLabel": "Ativo",
+      "activeHint": "Se este é um registro de país global válido e atual.",
+      "availabilityCreateHint": "A disponibilidade para Parceiros, a visibilidade no Explore e uma imagem de destino podem ser configuradas após a criação deste país.",
+      "availabilitySection": "Disponibilidade no Apex Card",
+      "availableForPartnersLabel": "Disponível para Parceiros",
+      "availableForPartnersHint": "Permite que este país seja selecionado para novos registros e localizações de Parceiros.",
+      "visibleInExploreLabel": "Visível no Explore",
+      "visibleInExploreHint": "Exibe este país como um destino na tela Explore do aplicativo móvel.",
+      "exploreRequiresImageWarning": "É necessária uma imagem de destino antes que este país possa ficar visível no Explore.",
+      "featuredLabel": "Em destaque",
+      "featuredHint": "Destaca este país na área de destinos em destaque/populares.",
+      "displayOrderLabel": "Ordem de exibição",
+      "regionLabel": "Região",
+      "regionNone": "Sem região",
+      "statusLabel": "Status",
+      "saving": "Salvando...",
+      "createConfirm": "Criar país"
+    },
+    "regions": {
+      "europe": "Europa",
+      "africa": "África",
+      "americas": "Américas",
+      "asia": "Ásia",
+      "oceania": "Oceania",
+      "middleEast": "Oriente Médio"
+    },
+    "image": {
+      "label": "Imagem de destino",
+      "upload": "Enviar imagem",
+      "replace": "Substituir imagem",
+      "remove": "Remover",
+      "altTextLabel": "Texto alternativo da imagem",
+      "altTextPlaceholder": "Descreva a imagem, ex.: \"Skyline de Lisboa ao pôr do sol\"",
+      "hint": "JPEG, PNG ou WebP. Máximo de 5MB.",
+      "errors": {
+        "invalidType": "A imagem deve ser JPEG, PNG ou WebP.",
+        "tooLarge": "A imagem deve ter no máximo 5MB.",
+        "uploadFailed": "Não foi possível enviar a imagem.",
+        "removeFailed": "Não foi possível remover a imagem."
+      }
+    },
+    "empty": {
+      "noCountries": "Ainda não há países.",
+      "noResults": "Nenhum país corresponde aos seus filtros.",
+      "noResultsHint": "Tente ajustar sua pesquisa ou filtros."
+    },
+    "errors": {
+      "forbidden": "Você não tem permissão para ver esta página.",
+      "loadFailed": "Não foi possível carregar os países.",
+      "createFailed": "Não foi possível criar este país.",
+      "updateFailed": "Não foi possível atualizar este país.",
+      "duplicateName": "Já existe um país com este nome.",
+      "statusUpdateFailed": "Não foi possível atualizar o status do país."
+    },
+    "success": {
+      "created": "{{name}} foi criado.",
+      "updated": "{{name}} foi atualizado.",
+      "activated": "{{name}} foi ativado.",
+      "deactivated": "{{name}} foi desativado."
+    },
+    "pagination": {
+      "previous": "Anterior",
+      "next": "Próxima",
+      "pageInfo": "Página {{page}} de {{totalPages}}",
+      "rangeInfo": "Mostrando {{from}}–{{to}} de {{total}}"
+    }
   },
   "dashboard": {
-    "title": "Painel"
+    "title": "Painel",
+    "description": "Um resumo rápido do que está acontecendo na Apex Card.",
+    "dateRangePlaceholder": "Últimos 30 dias",
+    "refresh": "Atualizar",
+    "kpi": {
+      "totalMembers": "Total de Membros",
+      "activeMembers": "Membros Ativos",
+      "totalPartners": "Total de Parceiros",
+      "activeDiscounts": "Descontos Ativos",
+      "comparisonPeriod": "em relação aos últimos 30 dias"
+    },
+    "attention": {
+      "title": "Requer sua atenção",
+      "review": "Revisar",
+      "partnersAwaitingApproval": {
+        "title": "Parceiros aguardando aprovação",
+        "description": "Novas solicitações de parceria prontas para análise"
+      },
+      "reviewsAwaitingModeration": {
+        "title": "Avaliações aguardando moderação",
+        "description": "Avaliações de membros sinalizadas para moderação"
+      },
+      "discountsExpiringSoon": {
+        "title": "Descontos expirando em breve",
+        "description": "Benefícios que terminam em até 7 dias"
+      },
+      "subscriptionIssues": {
+        "title": "Problemas de assinatura",
+        "description": "Membros com renovações pendentes ou com falha"
+      }
+    },
+    "growth": {
+      "title": "Crescimento de membros",
+      "placeholderLabel": "Placeholder do gráfico de crescimento de membros",
+      "placeholderNote": "A integração de gráficos está planejada para uma próxima etapa."
+    },
+    "activity": {
+      "title": "Atividade recente",
+      "partnerCreated": "Novo parceiro criado",
+      "reviewSubmitted": "Avaliação enviada",
+      "subscriptionRenewed": "Assinatura renovada",
+      "discountUpdated": "Desconto atualizado",
+      "administratorAction": "Ação de administrador registrada"
+    }
   },
   "errors": {
     "apiUnavailable": "Não foi possível contactar a API em {{url}}. Confirme que pnpm api:dev está em execução e que VITE_API_BASE_URL está definido como http://127.0.0.1:4000.",
@@ -54,8 +393,356 @@
     "requestFailed": "O pedido falhou.",
     "requestFailedAt": "O pedido falhou em {{url}}."
   },
+  "layout": {
+    "notifications": "Notificações",
+    "search": "Pesquisar",
+    "toggleSidebar": "Alternar menu lateral"
+  },
+  "members": {
+    "title": "Membros",
+    "description": "Encontre, avalie e gerencie os membros do Apex Card.",
+    "totalCount_one": "{{count}} membro",
+    "totalCount_other": "{{count}} membros",
+    "status": {
+      "active": "Ativo",
+      "suspended": "Suspenso",
+      "deleted": "Excluído"
+    },
+    "membershipStatus": {
+      "active": "Ativa",
+      "expired": "Expirada",
+      "cancelled": "Cancelada"
+    },
+    "membershipType": {
+      "free": "Gratuito",
+      "premium": "Premium",
+      "student": "Estudante",
+      "worker": "Trabalhador",
+      "grantedIndicator": "Concedida"
+    },
+    "filters": {
+      "searchPlaceholder": "Pesquisar por nome ou email",
+      "status": "Status da conta",
+      "statusAll": "Todos os status",
+      "membershipStatus": "Status da assinatura",
+      "membershipStatusAll": "Todos os status de assinatura",
+      "language": "Idioma",
+      "languageAll": "Todos os idiomas",
+      "clear": "Limpar filtros"
+    },
+    "table": {
+      "member": "Membro",
+      "status": "Status da conta",
+      "membershipStatus": "Assinatura",
+      "language": "Idioma",
+      "registered": "Registrado em",
+      "actions": "Ações"
+    },
+    "actions": {
+      "openMenu": "Abrir ações para {{name}}",
+      "view": "Ver",
+      "edit": "Editar",
+      "suspend": "Suspender",
+      "reactivate": "Reativar",
+      "grantMembership": "Conceder assinatura",
+      "revokeMembership": "Revogar assinatura",
+      "resetMembership": "Remover assinatura",
+      "working": "Processando..."
+    },
+    "confirm": {
+      "suspendTitle": "Suspender este membro?",
+      "suspendDescription": "{{name}} perderá o acesso ao aplicativo até ser reativado.",
+      "reactivateTitle": "Reativar este membro?",
+      "reactivateDescription": "{{name}} recuperará o acesso ao aplicativo.",
+      "revokeTitle": "Revogar assinatura?",
+      "revokeDescription": "A assinatura de {{name}} será cancelada. O plano permanece visível, marcado como cancelado.",
+      "resetTitle": "Remover esta assinatura?",
+      "resetDescription": "{{name}} voltará para o plano Gratuito. Isso limpa completamente o plano atual, a expiração e o cancelamento."
+    },
+    "grant": {
+      "title": "Conceder assinatura",
+      "description": "Escolha o plano a conceder a {{name}}.",
+      "typeLabel": "Tipo de assinatura",
+      "durationLabel": "Duração",
+      "durationUnlimited": "Ilimitada",
+      "durationExpiryDate": "Data de expiração",
+      "expiryDateLabel": "Data de expiração",
+      "expiryDateRequired": "É necessária uma data de expiração.",
+      "confirm": "Conceder assinatura"
+    },
+    "empty": {
+      "noMembers": "Ainda não há membros.",
+      "noResults": "Nenhum membro corresponde aos seus filtros.",
+      "noResultsHint": "Tente ajustar sua pesquisa ou filtros."
+    },
+    "errors": {
+      "forbidden": "Você não tem permissão para ver esta página.",
+      "loadFailed": "Não foi possível carregar os membros.",
+      "loadMemberFailed": "Não foi possível carregar este membro.",
+      "updateFailed": "Não foi possível atualizar este membro.",
+      "phoneConflict": "Este número de telefone já está em uso por outro membro.",
+      "statusUpdateFailed": "Não foi possível atualizar o status da conta.",
+      "membershipUpdateFailed": "Não foi possível atualizar a assinatura."
+    },
+    "success": {
+      "updated": "Membro atualizado com sucesso.",
+      "suspended": "{{name}} foi suspenso.",
+      "reactivated": "{{name}} foi reativado.",
+      "membershipGranted": "Assinatura concedida a {{name}}.",
+      "membershipRevoked": "Assinatura revogada de {{name}}.",
+      "membershipReset": "A assinatura de {{name}} foi removida — voltou para o Gratuito."
+    },
+    "pagination": {
+      "previous": "Anterior",
+      "next": "Próxima",
+      "pageInfo": "Página {{page}} de {{totalPages}}",
+      "rangeInfo": "Mostrando {{from}}–{{to}} de {{total}}"
+    },
+    "details": {
+      "title": "Detalhes do membro",
+      "personalInfo": "Informações pessoais",
+      "accountStatus": "Status da conta",
+      "membershipDetails": "Detalhes da assinatura",
+      "adminActions": "Ações administrativas",
+      "fullName": "Nome completo",
+      "email": "Email",
+      "phone": "Telefone",
+      "language": "Idioma preferido",
+      "dateOfBirth": "Data de nascimento",
+      "homeCountry": "País de origem",
+      "registeredAt": "Registrado em",
+      "updatedAt": "Última atualização",
+      "grantedManually": "Concedida manualmente",
+      "renewalExpiryDate": "Renovação / Data de expiração",
+      "expiredOn": "Expirou em",
+      "cancelledOn": "Cancelada em",
+      "membershipFreeHint": "Este membro está no plano Gratuito — não possui assinatura nem acesso concedido.",
+      "notProvided": "Não informado"
+    },
+    "edit": {
+      "title": "Editar membro",
+      "description": "Atualize as informações de perfil deste membro.",
+      "fullNameLabel": "Nome completo",
+      "fullNameRequired": "O nome completo deve ter pelo menos 2 caracteres.",
+      "phoneLabel": "Telefone",
+      "phonePlaceholder": "Não informado",
+      "languageLabel": "Idioma preferido",
+      "homeCountryLabel": "País de origem",
+      "homeCountryPlaceholder": "Sem país de origem",
+      "saving": "Salvando...",
+      "membershipSectionTitle": "Assinatura",
+      "membershipFreeHint": "Este membro está no plano Gratuito. Use Conceder assinatura para atribuir um plano.",
+      "currentStatusPrefix": "Status atual:"
+    }
+  },
+  "nav": {
+    "dashboard": "Painel",
+    "members": "Membros",
+    "partners": "Parceiros",
+    "discounts": "Descontos",
+    "content": "Conteúdo",
+    "contentHomeBanners": "Banners da Home",
+    "contentPromotions": "Promoções",
+    "locations": "Localizações",
+    "locationsCountries": "Países",
+    "locationsCities": "Cidades",
+    "locationsCategories": "Categorias",
+    "analytics": "Análises",
+    "administration": "Administração",
+    "administrators": "Administradores",
+    "roles": "Funções",
+    "permissions": "Permissões",
+    "settings": "Configurações",
+    "reviews": "Avaliações"
+  },
   "partners": {
-    "title": "Parceiros"
+    "title": "Parceiros",
+    "description": "Crie e gerencie os negócios que participam do Apex Card.",
+    "totalCount_one": "{{count}} parceiro",
+    "totalCount_other": "{{count}} parceiros",
+    "status": {
+      "draft": "Rascunho",
+      "active": "Ativo",
+      "inactive": "Inativo",
+      "suspended": "Suspenso"
+    },
+    "filters": {
+      "searchPlaceholder": "Pesquisar por nome, email, telefone ou WhatsApp",
+      "status": "Status",
+      "statusAll": "Todos os status",
+      "country": "País",
+      "countryAll": "Todos os países",
+      "city": "Cidade",
+      "cityAll": "Todas as cidades",
+      "clear": "Limpar filtros"
+    },
+    "table": {
+      "name": "Negócio",
+      "contact": "Contato",
+      "whatsappPrefix": "WhatsApp:",
+      "location": "Localização",
+      "status": "Status",
+      "updated": "Atualizado",
+      "actions": "Ações"
+    },
+    "actions": {
+      "openMenu": "Abrir ações para {{name}}",
+      "create": "Criar parceiro",
+      "view": "Ver",
+      "edit": "Editar",
+      "activate": "Ativar",
+      "deactivate": "Desativar"
+    },
+    "confirm": {
+      "activateTitle": "Ativar este parceiro?",
+      "activateDescription": "{{name}} será marcado como ativo. Configurações adicionais (categorias, descontos, mídia) ainda são necessárias antes da publicação completa no aplicativo móvel.",
+      "deactivateTitle": "Desativar este parceiro?",
+      "deactivateDescription": "{{name}} será removido de futuras listagens públicas e do aplicativo móvel. Todos os dados são preservados e o parceiro continua editável."
+    },
+    "createPage": {
+      "title": "Criar parceiro",
+      "description": "Novos parceiros começam como Rascunho — os detalhes podem ser completados e ativados depois.",
+      "backToList": "Voltar aos parceiros"
+    },
+    "details": {
+      "description": "Gerencie as informações e a configuração deste parceiro.",
+      "editTitle": "Editar parceiro",
+      "overviewTitle": "Visão geral",
+      "contactTitle": "Contato",
+      "addressTitle": "Endereço",
+      "configTitle": "Configuração",
+      "createdAt": "Criado em",
+      "updatedAt": "Última atualização",
+      "coordinates": "Coordenadas",
+      "notProvided": "Não informado",
+      "activeConfigNote": "Este parceiro está ativo, mas configurações adicionais (categorias, descontos, mídia) ainda são necessárias antes da publicação completa no aplicativo móvel.",
+      "config": {
+        "locations": "Localizações",
+        "discounts": "Descontos e Ofertas",
+        "media": "Mídia",
+        "featured": "Status de Destaque",
+        "ratings": "Avaliações",
+        "analytics": "Análises",
+        "notConfigured": "Ainda não configurado."
+      },
+      "openInMaps": "Abrir no Maps"
+    },
+    "form": {
+      "identitySection": "Negócio",
+      "contactSection": "Contato",
+      "addressSection": "Endereço",
+      "nameLabel": "Nome do negócio",
+      "nameRequired": "O nome do negócio deve ter pelo menos 2 caracteres.",
+      "slugLabel": "Slug",
+      "slugHint": "Minúsculas, separado por hífens e único. Gerado automaticamente a partir do nome — você pode editá-lo.",
+      "slugInvalid": "O slug deve conter apenas letras minúsculas, números e hífens.",
+      "descriptionLabel": "Descrição",
+      "emailLabel": "Email",
+      "emailInvalid": "É necessário um endereço de email válido.",
+      "phoneLabel": "Telefone",
+      "phoneInvalid": "Insira um número de telefone válido.",
+      "whatsappLabel": "WhatsApp",
+      "websiteLabel": "Site",
+      "websiteInvalid": "É necessária uma URL de site válida (inclua https://).",
+      "addressLine1Label": "Endereço linha 1",
+      "addressLine2Label": "Endereço linha 2",
+      "postalCodeLabel": "Código postal",
+      "countryLabel": "País",
+      "countryPlaceholder": "Selecione um país",
+      "countryRequired": "Um país é obrigatório.",
+      "cityLabel": "Cidade",
+      "cityPlaceholder": "Sem cidade",
+      "latitudeLabel": "Latitude",
+      "latitudeInvalid": "A latitude deve estar entre -90 e 90.",
+      "longitudeLabel": "Longitude",
+      "longitudeInvalid": "A longitude deve estar entre -180 e 180.",
+      "saving": "Salvando...",
+      "createConfirm": "Criar parceiro",
+      "googleMapsUrlLabel": "Link do Google Maps",
+      "googleMapsUrlHint": "Cole o link de compartilhamento do Google Maps — o aplicativo móvel o usa para abrir direções.",
+      "googleMapsUrlInvalid": "O link deve ser uma URL do Google Maps (ex.: https://maps.google.com/...)."
+    },
+    "empty": {
+      "noPartners": "Ainda não há parceiros.",
+      "noResults": "Nenhum parceiro corresponde aos seus filtros.",
+      "noResultsHint": "Tente ajustar sua pesquisa ou filtros."
+    },
+    "errors": {
+      "forbidden": "Você não tem permissão para ver esta página.",
+      "loadFailed": "Não foi possível carregar os parceiros.",
+      "loadOneFailed": "Não foi possível carregar este parceiro.",
+      "notFound": "Este parceiro não foi encontrado.",
+      "createFailed": "Não foi possível criar este parceiro.",
+      "updateFailed": "Não foi possível atualizar este parceiro.",
+      "statusUpdateFailed": "Não foi possível atualizar o status do parceiro.",
+      "activationRequiresImage": "É necessária pelo menos uma imagem do parceiro antes da ativação. Envie uma imagem na seção Imagens do parceiro primeiro."
+    },
+    "success": {
+      "created": "Parceiro criado como Rascunho.",
+      "updated": "Parceiro atualizado com sucesso.",
+      "activated": "{{name}} foi ativado.",
+      "deactivated": "{{name}} foi desativado."
+    },
+    "pagination": {
+      "previous": "Anterior",
+      "next": "Próxima",
+      "pageInfo": "Página {{page}} de {{totalPages}}",
+      "rangeInfo": "Mostrando {{from}}–{{to}} de {{total}}"
+    },
+    "media": {
+      "title": "Imagens",
+      "rulesHint": "Pelo menos 1 imagem é necessária antes da ativação. Máximo de 3 imagens. Uma imagem é sempre usada como capa.",
+      "slotsRemaining_one": "{{count}} espaço restante",
+      "slotsRemaining_other": "{{count}} espaços restantes",
+      "slotsFull": "Todos os espaços de imagem estão em uso.",
+      "empty": "Ainda não há imagens. Envie pelo menos uma imagem antes de ativar este parceiro.",
+      "select": "Selecionar imagens",
+      "upload": "Enviar imagens",
+      "replace": "Substituir imagem",
+      "remove": "Remover imagem",
+      "setCover": "Definir como capa",
+      "coverBadge": "Capa",
+      "position": "Imagem {{position}}",
+      "imageAlt": "{{name}} imagem {{position}}",
+      "pendingImageAlt": "Imagem selecionada {{position}}",
+      "confirmRemoveTitle": "Remover esta imagem?",
+      "confirmRemoveDescription": "A imagem será removida permanentemente do armazenamento. Se for a capa, outra imagem se tornará a capa automaticamente.",
+      "errors": {
+        "invalidType": "As imagens devem ser JPEG, PNG ou WebP.",
+        "tooLarge": "Cada imagem deve ter no máximo 5MB.",
+        "tooMany": "Um parceiro pode ter no máximo {{max}} imagens.",
+        "uploadFailed": "Não foi possível enviar a(s) imagem(ns).",
+        "removeFailed": "Não foi possível remover a imagem.",
+        "coverFailed": "Não foi possível atualizar a imagem de capa.",
+        "createUploadFailed": "O parceiro foi criado, mas o envio das imagens falhou. Envie as imagens novamente na seção Imagens abaixo."
+      },
+      "success": {
+        "uploaded": "Imagem(ns) enviada(s).",
+        "replaced": "Imagem substituída.",
+        "removed": "Imagem removida.",
+        "coverSet": "Imagem de capa atualizada."
+      }
+    },
+    "categories": {
+      "title": "Categorias",
+      "empty": "Ainda não há categorias atribuídas.",
+      "assign": "Atribuir categoria",
+      "assignPlaceholder": "Atribuir uma categoria...",
+      "removeLabel": "Remover categoria {{name}}",
+      "allAssigned": "Todas as categorias ativas estão atribuídas.",
+      "noneAvailable": "Ainda não existem categorias ativas. Crie-as no módulo Categorias.",
+      "errors": {
+        "updateFailed": "Não foi possível atualizar as categorias do parceiro."
+      },
+      "success": {
+        "assigned": "Categoria atribuída.",
+        "removed": "Categoria removida."
+      }
+    }
+  },
+  "placeholder": {
+    "description": "Este módulo estará disponível em breve.",
+    "comingSoon": "Esta seção está em construção."
   },
   "records": {
     "empty": "Ainda não há registos.",
@@ -63,9 +750,32 @@
     "noCountry": "Sem país"
   },
   "settings": {
-    "language": "Idioma"
+    "title": "Configurações",
+    "description": "Gerencie sua conta de administrador e suas preferências.",
+    "language": "Idioma",
+    "languageEnglish": "Inglês",
+    "languagePortuguese": "Português",
+    "languageDescription": "Escolha o idioma usado em todo o Portal Admin.",
+    "profile": {
+      "title": "Informações do administrador",
+      "fullName": "Nome completo",
+      "email": "Email",
+      "memberSince": "Administrador desde",
+      "notProvided": "Não informado"
+    },
+    "security": {
+      "title": "Segurança da conta"
+    }
   },
   "subscription": {
     "title": "Subscrição"
+  },
+  "userMenu": {
+    "openMenu": "Abrir menu do usuário",
+    "signedInAs": "Conectado como",
+    "myAccount": "Minha Conta",
+    "changePassword": "Alterar Senha",
+    "changePasswordUnavailable": "A alteração de senha ainda não está disponível.",
+    "signOut": "Sair"
   }
 }

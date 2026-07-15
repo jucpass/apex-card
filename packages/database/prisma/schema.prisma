@@ -21,13 +21,11 @@ enum UserStatus {
   DELETED
 }
 
-enum MembershipStatus {
+enum MembershipType {
   FREE
-  ACTIVE
-  EXPIRED
-  CANCELLED
-  LIFETIME
-  GRANTED
+  PREMIUM
+  STUDENT
+  WORKER
 }
 
 enum PartnerStatus {
@@ -114,9 +112,8 @@ model Membership {
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId String
 
-  status                      MembershipStatus @default(FREE)
-  isStudent                   Boolean          @default(false)
-  isWorker                    Boolean          @default(false)
+  type                        MembershipType @default(FREE)
+  isManuallyGranted           Boolean        @default(false)
   revenueCatCustomerId        String?
   revenueCatEntitlement       String?
   revenueCatProductId         String?
@@ -130,7 +127,7 @@ model Membership {
   updatedAt DateTime @updatedAt
 
   @@index([userId])
-  @@index([status])
+  @@index([type])
   @@index([revenueCatCustomerId])
 }
 
@@ -143,6 +140,20 @@ model Country {
   currency  String?
   active    Boolean @default(true)
 
+  // Apex Card availability — independent of `active` (global/master-data status).
+  // A country can be a valid choice for user nationality/residence while remaining
+  // unavailable for Partners and hidden from the mobile Explore screen.
+  availableForPartners Boolean @default(false)
+  visibleInExplore     Boolean @default(false)
+  featured             Boolean @default(false)
+  displayOrder         Int     @default(0)
+  region               String?
+
+  // Destination media for the mobile Explore screen (Supabase Storage object path,
+  // not a generated public URL — see packages/api/src/lib/supabaseAdmin.ts).
+  imagePath    String?
+  imageAltText String?
+
   cities       City[]
   users        User[]
   partners     Partner[]
@@ -152,6 +163,8 @@ model Country {
   updatedAt DateTime @updatedAt
 
   @@index([active])
+  @@index([availableForPartners])
+  @@index([visibleInExplore])
 }
 
 model City {
@@ -182,8 +195,8 @@ model Category {
   icon   String?
   active Boolean @default(true)
 
-  partners     Partner[]
-  promoBanners PromoBanner[]
+  partnerCategories PartnerCategory[]
+  promoBanners      PromoBanner[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -197,26 +210,27 @@ model Partner {
   name         String
   slug         String        @unique
   description  String?
-  logo         String?
-  coverImage   String?
   email        String?
   phone        String?
+  whatsapp     String?
   website      String?
   addressLine1 String?
   addressLine2 String?
   postalCode   String?
+  // Preferred way for the mobile app to open navigation — validated as a Google Maps link.
+  googleMapsUrl String?
   latitude     Decimal?      @db.Decimal(9, 6)
   longitude    Decimal?      @db.Decimal(9, 6)
   status       PartnerStatus @default(DRAFT)
 
   country    Country  @relation(fields: [countryId], references: [id], onDelete: Restrict)
   countryId  String
-  city       City?    @relation(fields: [cityId], references: [id], onDelete: SetNull)
-  cityId     String?
-  category   Category @relation(fields: [categoryId], references: [id], onDelete: Restrict)
-  categoryId String
+  city   City?   @relation(fields: [cityId], references: [id], onDelete: SetNull)
+  cityId String?
 
   users        PartnerUser[]
+  categories   PartnerCategory[]
+  media        PartnerMedia[]
   benefits     Benefit[]
   visits       PartnerVisit[]
   reviews      Review[]
@@ -228,8 +242,43 @@ model Partner {
 
   @@index([countryId])
   @@index([cityId])
-  @@index([categoryId])
   @@index([status])
+}
+
+// Many-to-many Partner <-> Category. One physical location per Partner is an intentional
+// MVP decision (a multi-branch business registers each branch as its own Partner), so
+// categories attach directly to the Partner, not to a location entity.
+model PartnerCategory {
+  id String @id @default(cuid())
+
+  partner    Partner  @relation(fields: [partnerId], references: [id], onDelete: Cascade)
+  partnerId  String
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  categoryId String
+
+  createdAt DateTime @default(now())
+
+  @@unique([partnerId, categoryId])
+  @@index([categoryId])
+}
+
+model PartnerMedia {
+  id String @id @default(cuid())
+
+  // Stable Supabase Storage object path in the public "partner-assets" bucket
+  // (partners/{partnerId}/{uuid}.{ext}) — never a bare public URL.
+  storagePath String
+  mimeType    String
+  isCover     Boolean @default(false)
+  sortOrder   Int     @default(0)
+
+  partner   Partner @relation(fields: [partnerId], references: [id], onDelete: Cascade)
+  partnerId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([partnerId])
 }
 
 model PartnerUser {

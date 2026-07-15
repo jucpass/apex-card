@@ -2,35 +2,14 @@ export type CountryDto = {
   id: string;
   name: string;
   code: string;
+  /** International calling prefix (e.g. "+351") — used to prefill Partner phone/WhatsApp. */
+  phoneCode: string | null;
 };
 
 export type CityDto = {
   id: string;
   name: string;
   countryId: string;
-};
-
-export type CategoryDto = {
-  id: string;
-  name: string;
-  slug: string;
-  icon: string | null;
-};
-
-export type CountryInput = {
-  name: string;
-  code: string;
-};
-
-export type CityInput = {
-  name: string;
-  countryId: string;
-};
-
-export type CategoryInput = {
-  name: string;
-  slug: string;
-  icon: string;
 };
 
 export type CountriesResponse = {
@@ -47,12 +26,4 @@ export type CitiesResponse = {
 
 export type CityResponse = {
   city: CityDto;
-};
-
-export type CategoriesResponse = {
-  categories: CategoryDto[];
-};
-
-export type CategoryResponse = {
-  category: CategoryDto;
 };
